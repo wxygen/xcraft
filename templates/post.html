@@ -4,9 +4,12 @@
 {% block title %}{{ post.title }} - Xcraft | 星之所向 创想无界{% endblock %}
 
 {% block content %}
-<article class="post-container">
-    <!-- 标题保持不变 -->
-    <h1 class="post-title">{{ post.title }}</h1>
+<div class="container">
+    <!-- 标题区域 -->
+    <div class="d-flex justify-content-between mb-4">
+        <h3 class="mt-2 mb-1" style="font-weight: 550; line-height: 1.5;">{{ post.title }}</h3>
+        <div></div> <!-- 占位元素，确保标题左对齐 -->
+    </div>
 
     <!-- 双栏信息容器 -->
     <div class="post-meta-container">
@@ -40,7 +43,7 @@
         <div class="post-meta-info">
             <div class="meta-row">
                 <span class="meta-label">创建者</span>
-                <span class="author-name">
+                <span class="author-name-small">
                     <strong>
                         <a href="{{ url_for('user_detail', uid=post.author.id) }}"
                             class="{% if post.author.is_admin %}text-purple{% elif post.author.can_post %}text-red{% else %}text-blue{% endif %}">
@@ -48,10 +51,10 @@
                         </a>
                     </strong>
                     {% if post.author.can_post %}
-                    <span class="badge badge-red">管理员</span>
+                    <span class="badge badge-red-small">管理员</span>
                     {% endif %}
                     {% if post.author.is_admin %}
-                    <span class="badge badge-purple">超管</span>
+                    <span class="badge badge-purple-small">超管</span>
                     {% endif %}
                 </span>
             </div>
@@ -80,32 +83,11 @@
             <i class="bi bi-arrow-left"></i> 返回文章列表
         </a>
     </div>
-</article>
+</div>
 {% endblock %}
 
 {% block styles %}
 <style>
-    /* 文章容器 */
-    .post-container {
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 0rem;
-    }
-
-    /* 文章标题 */
-    .post-title {
-
-        margin-top: 2.5rem;
-        /* 增加上边距 */
-        margin-bottom: 0rem;
-        /* 减少下边距 */
-        font-size: 2.2rem;
-        margin-bottom: 2rem;
-        color: #333;
-        font-weight: 600;
-        padding-bottom: 0rem;
-    }
-
     /* 双栏布局容器 */
     .post-meta-container {
         display: flex;
@@ -183,17 +165,22 @@
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         align-self: flex-start;
         /* 使右侧栏高度由内容决定 */
+        font-size: 0.9rem;
+        /* 减小整体字体大小 */
     }
 
     .post-meta-info .author-name {
         position: relative;
         top: -3px;
+        font-size: 1rem;
+        /* 调整作者名字字体大小 */
     }
 
     .meta-row {
         display: flex;
         justify-content: space-between;
-        padding: 0.8rem 0;
+        padding: 0.6rem 0;
+        /* 减小行距 */
         border-bottom: 1px solid #f5f5f5;
     }
 
@@ -203,12 +190,15 @@
 
     .meta-label {
         color: #666;
-        font-size: 0.95rem;
+        font-size: 0.85rem;
+        /* 减小标签字体大小 */
     }
 
     .meta-value {
         color: #333;
         font-weight: 500;
+        font-size: 0.9rem;
+        /* 减小值的字体大小 */
     }
 
     /* 底部按钮 */

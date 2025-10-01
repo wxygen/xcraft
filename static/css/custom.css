@@ -446,7 +446,7 @@ span a:hover,
 .badge-red-small,
 .badge-purple-small,
 .badge-blue-small {
-    padding: 0.45em 0.8em;
+    padding: 0.5em 0.85em;
     font-size: 50%;
     font-weight: 700;
     line-height: 1;
@@ -456,6 +456,8 @@ span a:hover,
     border-radius: 0.4rem;
     display: inline-block;
     vertical-align: middle;
+    top: -0.2em;
+    transform: scale(0.9);
 }
 
 :root {
@@ -525,13 +527,10 @@ span a:hover,
     font-size: 1.2rem;
 }
 
-.author-name-small .badge-small{
+.author-name-small{
     position: relative;
     top: -0.1em;
     margin-left: 0.3em;
-}
-
-.author-name-small {
     font-weight: bold;
     font-size: 1.0rem;
 }
