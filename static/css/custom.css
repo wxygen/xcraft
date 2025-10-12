@@ -44,33 +44,6 @@ body {
   transform: scale(0.95);
 }
 
-/* Markdown内容样式 */
-.markdown-content {
-    line-height: 1.8;
-    font-size: 16px;
-    color: #333;
-}
-
-.markdown-content code {
-    background-color: #f3f3f3;
-    padding: 2px 6px;
-    border-radius: 3px;
-    font-family: Monaco, Consolas, "Courier New", monospace;
-}
-
-.markdown-content pre {
-    background-color: #f8f9fa;
-    padding: 15px;
-    border-radius: 5px;
-    overflow-x: auto;
-}
-
-.markdown-content pre code {
-    background-color: transparent;
-    padding: 0;
-    font-size: 14px;
-}
-
 blockquote {
     border-left: 4px solid #ddd;
     margin: 1em 0;
@@ -78,20 +51,115 @@ blockquote {
     color: #555;
 }
 
-.markdown-content table {
-    border-collapse: collapse;
-    margin: 1em 0;
-    width: 100%;
+/* 调整 Markdown 标题间距 */
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+    margin-bottom: 1.0rem;
+    /* 增加标题下方间距 */
 }
 
-.markdown-content th,
-.markdown-content td {
-    border: 1px solid #ddd;
-    padding: 8px;
+.post-content h1 {
+    border-bottom: solid 1px #d8d8d8;
+    display: block;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+    margin: 1.5rem 0 1rem;
+    font-size: 2em;
+    padding-bottom: .25em;
 }
 
-.markdown-content th {
-    background-color: #f8f9fa;
+.post-content h2 {
+    display: block;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+    margin: 1.2rem 0 1rem;
+    font-size: 1.5em;
+    padding-bottom: .25em;
+    border-bottom: solid 1px #d8d8d8;
+}
+
+.post-content h3 {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+    margin: 1.2rem 0 1rem;
+    font-size: 1.2em;
+}
+
+.post-content h4 {
+    display: block;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+    margin: 1rem 0;
+    font-size: 1.1em;
+}
+
+.post-content h5 {
+    display: block;
+    margin-block-start: 1.67em;
+    margin-block-end: 1.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+    margin: 1rem 0;
+    font-size: 1em;
+}
+
+.post-content h6 {
+    display: block;
+    margin-block-start: 2.33em;
+    margin-block-end: 2.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+    margin: 1rem 0;
+    font-size: 1em;
+    color: #666;
+}
+
+article a,
+span a,
+.arithmatex a,
+/* 数学公式容器内的链接 */
+/* 段落内的链接 */
+.meta-value a {
+    /* 右侧信息栏的链接 */
+    text-decoration: none;
+    color: #3498db
+}
+
+/* 悬停深蓝色 */
+article a:hover,
+span a:hover,
+.arithmatex a:hover,
+/* 数学公式容器内的链接 */
+/* 段落内的链接 */
+.meta-value a:hover {
+    /* 右侧信息栏的链接 */
+    text-decoration: none;
+    color: #0a58ca
 }
 
 /* 自定义按钮样式 */
@@ -349,85 +417,6 @@ blockquote {
     overflow-y: auto;
 }
 
-/* 调整文章正文的字体大小和行高 */
-.markdown-content {
-    font-size: 1.4rem;
-    /* 基础字体大小 */
-    line-height: 1.8;
-    /* 行高 */
-}
-
-/* 调整 Markdown 标题间距 */
-.post-content h1,
-.post-content h2,
-.post-content h3,
-.post-content h4,
-.post-content h5,
-.post-content h6 {
-    margin-bottom: 1.0rem;
-    /* 增加标题下方间距 */
-}
-
-/* 调整标题层级 */
-.markdown-content h1 {
-    font-size: 2.2rem;
-}
-
-.markdown-content h2 {
-    font-size: 1.8rem;
-}
-
-.markdown-content h3 {
-    font-size: 1.5rem;
-}
-
-/* 调整段落文字 */
-.markdown-content p {
-    margin-bottom: 1.4rem;
-    font-size: 1.3rem;
-}
-
-/* 调整代码块样式 */
-.markdown-content pre {
-    font-size: 0.95rem;
-    padding: 1.2rem;
-    border-radius: 8px;
-}
-
-/* 调整列表文字 */
-.markdown-content ul,
-.markdown-content ol {
-    font-size: 1.1rem;
-    margin-bottom: 1.2rem;
-}
-
-article a,
-span a,
-.markdown-content a,
-.arithmatex a,
-/* 数学公式容器内的链接 */
-.markdown-content p a,
-/* 段落内的链接 */
-.meta-value a {
-    /* 右侧信息栏的链接 */
-    text-decoration: none;
-    color: #3498db
-}
-
-/* 悬停深蓝色 */
-article a:hover,
-span a:hover,
-.markdown-content a:hover,
-.arithmatex a:hover,
-/* 数学公式容器内的链接 */
-.markdown-content p a:hover,
-/* 段落内的链接 */
-.meta-value a:hover {
-    /* 右侧信息栏的链接 */
-    text-decoration: none;
-    color: #0a58ca
-}
-
 .badge-red,
 .badge-purple,
 .badge-blue {
@@ -538,8 +527,10 @@ span a:hover,
 /* 添加表格基本样式 */
 table {
     width: 100%;
+    margin-top: 1rem;
     margin-bottom: 1rem;
     border-collapse: collapse;
+    line-height: 1.5;
 }
 
 th,
@@ -551,11 +542,9 @@ td {
 /* 代码块整体样式 */
 pre code.hljs {
     background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
-    border-radius: 10px;
     padding: 1rem;
     font-family: 'Fira Code', monospace;
-    font-size: 0.9em;
+    font-size: 0.95rem;
     overflow-x: auto;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
@@ -605,7 +594,7 @@ pre code.hljs {
 }
 
 .hljs-ln-line {
-    line-height: 1.5;
+    line-height: 1.65;
     /* 默认通常是1.2-1.5，调整为1.5-2.0 */
 }
 
@@ -627,13 +616,47 @@ pre code.hljs {
 }
 
 /* 可选：调整行号颜色 */
-.highlight .hljs-ln-n:before {
+.hljs-ln-n:before {
     color: #999;
 }
 
-.highlight table.hljs-ln {
+table.hljs-ln {
+    margin-top: 0;
     margin-bottom: 0;
-    /* 移除表格的下边距 */
+    /* 移除表格的上下边距 */
+}
+
+pre {
+    display: block;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    overflow: auto;
+    font-size: .875em;
+}
+
+ /* 保留代码块外部边框 */
+.post-content pre {
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+}
+
+/* 移除所有代码块的表格边框线 */
+.post-content pre code {
+    border: none;
+}
+
+.post-content pre table {
+    border: none;
+    border-collapse: collapse;
+}
+
+.post-content pre td {
+    border: none;
+    padding: 0;
+}
+
+.post-content pre tr {
+    border: none;
 }
 
 /* 数学公式容器样式 */

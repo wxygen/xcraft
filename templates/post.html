@@ -100,8 +100,9 @@
         flex: 3.5;
         background: #fff;
         padding: 1.5rem;
-        border-radius: 8px;
+        border-radius: 15px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        padding-left: 2rem; /* 设置左侧间距为20px */
     }
 
     /* 作者信息 */
@@ -129,14 +130,18 @@
         display: block;
         font-size: 0.9rem;
         color: #888;
-        margin-top: 0.3rem;
+        margin-top: 0.5rem;
     }
 
     /* 文章内容 */
     .post-content {
-        line-height: 1.8;
-        font-size: 1.1rem;
+        line-height: 1.75;
+        font-size: 1.0rem;
         color: #444;
+    }
+
+    .post-content p {
+        margin-bottom: 10px;  /* 调整这个值来控制换行大小 */
     }
 
     /* 右侧元信息区 */
@@ -195,9 +200,9 @@
     }
 
     .meta-value {
-        color: #333;
+        color: #444;
         font-weight: 500;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         /* 减小值的字体大小 */
     }
 
