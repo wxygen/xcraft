@@ -333,7 +333,7 @@ span a:hover,
 
 .post-title-link:hover {
     color: #0a58ca;
-    text-decoration: underline;
+    /* text-decoration: underline; */
 }
 
 /* 元信息样式 */
@@ -735,4 +735,13 @@ pre {
 /* 卡片内标题悬停变蓝 */
 .card:hover .card-title a {
     color: #0d6efd !important; /* Bootstrap 默认蓝色 */
+}
+
+.post-content a {
+    text-decoration: none;
+    color: #3498db;
+}
+
+.post-content a:hover {
+    color: #0a58ca
 }

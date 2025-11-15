@@ -174,10 +174,8 @@
                 if (typeof renderMathInElement !== 'undefined') {
                     renderMathInElement(document.body, {
                         delimiters: [
-                            { left: "$", right: "$", display: true },  // 双美元符号用于行间公式
+                            { left: "$$", right: "$$", display: true },  // 双美元符号用于行间公式
                             { left: "$", right: "$", display: false },   // 单美元符号用于行内公式
-                            { left: "\\[", right: "\\]", display: true }, // LaTeX 风格行间公式
-                            { left: "\\(", right: "\\)", display: false } // LaTeX 风格行内公式
                         ],
                         throwOnError: false
                     });

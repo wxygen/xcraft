@@ -35,7 +35,24 @@ app.config['REMEMBER_COOKIE_DURATION'] = timedelta(days=14)  # 登录14天有效
 # 简化 Markdown 配置，移除 codehilite
 @app.template_filter('markdown')
 def convert_markdown(text):
-    return markdown.markdown(
+    import re
+    from markupsafe import Markup
+    
+    # 保护数学公式区域
+    math_blocks = []
+    
+    def save_math_block(match):
+        content = match.group(0)
+        math_blocks.append(content)
+        # 使用更独特的占位符，包含数学符号
+        return f"∮MATH{len(math_blocks)-1}∮"
+    
+    # 匹配行间公式 $$...$$ 和行内公式 $...$
+    text = re.sub(r'\$\$(.*?)\$\$', save_math_block, text, flags=re.DOTALL)
+    text = re.sub(r'\$(.*?)\$', save_math_block, text, flags=re.DOTALL)
+    
+    # 处理 Markdown
+    html = markdown.markdown(
         text, 
         extensions=[
             'extra', 
@@ -43,8 +60,7 @@ def convert_markdown(text):
             'tables',
             'nl2br',
             'pymdownx.tilde',
-            'pymdownx.superfences',
-            'pymdownx.arithmatex'  # 添加数学公式支持
+            'pymdownx.superfences'
         ],
         extension_configs={
             'pymdownx.superfences': {
@@ -55,13 +71,16 @@ def convert_markdown(text):
                         'format': lambda code: f'<div class="mermaid">{code}</div>'
                     }
                 ]
-            },
-            'pymdownx.arithmatex': {
-                'generic': True,  # 使用通用数学渲染模式
-                'preview': False   # 禁用预览模式
             }
         }
     )
+    
+    # 恢复数学公式块
+    for i, math_block in enumerate(math_blocks):
+        placeholder = f"∮MATH{i}∮"
+        html = html.replace(placeholder, math_block)
+    
+    return Markup(html)
 
 # ========== 模型定义 ========== #
 
