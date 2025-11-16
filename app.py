@@ -38,6 +38,8 @@ def convert_markdown(text):
     import re
     from markupsafe import Markup
     
+    text = escape(text)
+    
     # 保护数学公式区域
     math_blocks = []
     
