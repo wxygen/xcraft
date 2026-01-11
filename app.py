@@ -261,7 +261,7 @@ def index():
 >
 > 星创 —— 星之所向 创想无界
 
-欢迎来到 xuyang 的 blog！
+欢迎来到 Wxygen 的 blog！
 
 这是一个专注于 **算法竞赛** 与 **学习分享** 的技术博客，主要包含：
 
@@ -272,8 +272,22 @@ def index():
 - 技术杂谈与生活分享
 
 """
+    warning_content = """
+# 如果您是为了 Mine-Xcraft 服务器而来
+
+很抱歉，由于我们宣传的失误，这个网站 **并不是 Mine-Xcraft 官方网站**，只是为同一作者运营。
+
+Mine-Xcraft 服务器地址：mc.xycraft.dpdns.org，版本 1.19.2 Java。
+
+**我们非常不推荐用原版加入服务器，这会丧失很多服务器支持的功能。**  
+推荐使用 Xy's Modpack（Wxygen 的整合包），可以访问 [本站帮助链接](/discuss/27)，也可以加入我们的 QQ 群以下载。
+
+For More Infomation：**QQ 群 1079793394**。
+
+"""
     # 转换 Markdown 内容
     welcome_html = markdown.markdown(welcome_content, extras=["latex"])
+    warning_html = markdown.markdown(warning_content, extras=["latex"])
 
     # 原有的最新文章查询保持不变
     posts = Post.query.order_by(Post.created_at.desc()).limit(8).all()
@@ -283,11 +297,13 @@ def index():
         # 对于 AJAX 请求，返回完整页面
         return render_template('index.html', 
                              posts=posts,
-                             welcome_html=welcome_html)
+                             welcome_html=welcome_html,
+                             warning_html=warning_html)
     
     return render_template('index.html', 
                          posts=posts,
-                         welcome_html=welcome_html)  # 新增参数
+                         welcome_html=welcome_html,
+                         warning_html=warning_html)  # 新增参数
 
 # 分类路由
 @app.route('/discuss/<category>')

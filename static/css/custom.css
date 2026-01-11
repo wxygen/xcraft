@@ -173,6 +173,90 @@ span a:hover,
     margin-right: 1.5rem;
 }
 
+.warning-section {
+    margin-top: 50px;
+    position: relative;
+    border-radius: 20px;
+    padding: 25px;
+    color: #333;
+    transition: transform 0.3s ease;
+    z-index: 1;
+}
+.warning-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #fffbf7 0%, #fffaf3 100%);
+    border-left: 4px solid #ffcb6a;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+.warning-section:hover {
+    transform: translateY(-3px);
+}
+.warning-section:hover::before {
+    opacity: 0.85;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    border-left-color: #ffaa49;
+}
+.warning-section h1,
+.warning-section p,
+.warning-section ul,
+.warning-section li {
+    padding-left: 20px;
+}
+.warning-section h1 {
+    color: #fc8f00;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+.warning-section p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #444;
+}
+.warning-section strong {
+    color: #fc8f00;
+    font-weight: 600;
+}
+.warning-section ul {
+    padding-left: 2.8rem;
+    list-style-type: disc;
+    list-style-position: outside;
+}
+.warning-section blockquote {
+    padding: 5px 20px 5px 20px;
+    margin: 0px 0 15px 20px; 
+}
+.warning-section blockquote p {
+    margin: 0;
+    padding: 5px 0;
+    color: #919191;
+}
+.warning-section li {
+    margin-bottom: 0.7rem;
+    font-size: 1.1rem;
+    color: #444;
+    padding-left: 0;
+    text-indent: -15px;
+    display: list-item;
+}
+.warning-section a {
+    color: #fc8f00;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+.warning-section a:hover {
+    color: #e28000;
+    transition: color 0.2s;
+}
 
 /* 更新欢迎板块样式 */
 .welcome-section {
